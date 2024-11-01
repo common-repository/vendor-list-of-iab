@@ -1,0 +1,224 @@
+{
+  "plugin_slug": "iab_vendor_list_nsc",
+  "plugin_name": "IAB Vendor List",
+  "plugin_prefix": "nsc_ivl_",
+  "settings_page_configs": {
+    "page_title": "IAB Vendor List",
+    "menu_title": "IAB Vendor List",
+    "capability": "edit_published_posts"
+  },
+  "setting_page_fields": {
+    "active_tab_slug": "",
+    "active_tab_index": 0,
+    "tabs": [
+      {
+        "tabname": "Update List",
+        "tab_slug": "update_list",
+        "tab_description": "",
+        "active": false,
+        "form_action": "options.php",
+        "tabfields": [
+          {
+            "field_slug": "vendor_list_version_active",
+            "type": "display",
+            "pre_selected_value": "",
+            "required": false,
+            "extra_validation_name": false,
+            "helpertext": "Check this and hit save to get the newest vendorlist.",
+            "name": "List Version",
+            "save_in_db": false
+          },
+          {
+            "field_slug": "vendor_list_last_updated",
+            "type": "display",
+            "pre_selected_value": 0,
+            "required": false,
+            "extra_validation_name": "gmt_timestamp_to_date_nsc_ivl",
+            "helpertext": "Check this and hit save to get the newest vendorlist.",
+            "name": "Last updated",
+            "save_in_db": false
+          },
+          {
+            "field_slug": "vendor_list_last_downloaded",
+            "type": "display",
+            "pre_selected_value": 0,
+            "required": false,
+            "extra_validation_name": "unixtimestamp_to_date_nsc_ivl",
+            "helpertext": "Check this and hit save to get the newest vendorlist.",
+            "name": "Last downloaded",
+            "save_in_db": false
+          },
+          {
+            "field_slug": "update_list_now",
+            "type": "button",
+            "button_action": "",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": false,
+            "helpertext": "",
+            "name": "Update list and translation now",
+            "save_in_db": false
+          },
+          {
+            "field_slug": "delete_consent_cookie",
+            "type": "checkbox",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": false,
+            "helpertext": "If you do an update of the vendor list and the list has changed, the consent cookie will be deleted so that the users can give their consent to the new list. Will work only if you have specified a consent cookie, in the field 'Consent Cookie Name'",
+            "name": "Delete consent cookie",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "consent_cookie_name",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "cookieconsent_status",
+            "helpertext": "Name of consent cookie which shall be deleted after list update.",
+            "name": "Consent Cookie Name",
+            "save_in_db": true
+          }
+        ]
+      },
+      {
+        "tabname": "Text",
+        "tab_slug": "text",
+        "tab_description": "",
+        "active": false,
+        "form_action": "options.php",
+        "tabfields": [
+          {
+            "field_slug": "th_vendor_name",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "Vendor Name",
+            "helpertext": "Name of vendor displayed in table head.",
+            "name": "Table Head: Vendor Name",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "th_leg_purpose",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "Purpose of data processing under legitimate interest",
+            "helpertext": "Legitimate interest displayed in table head.",
+            "name": "Table Head: Legitimate Purpose",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "th_purpose",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "Purpose of data processing",
+            "helpertext": "Purpose displayed in table head.",
+            "name": "Table Head: Purpose",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "th_features",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "How data is used",
+            "helpertext": "Features displayed in table head.",
+            "name": "Table Head: Features",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "th_privacy_link",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "Link to data privacy policy",
+            "helpertext": "Data Policy Link displayed in table head.",
+            "name": "Table Head: Link",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "td_privacy_link",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "Policy",
+            "helpertext": "Anchor text of link to privacy policy",
+            "name": "Table Body: Link",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "language_code_overwrite",
+            "type": "text",
+            "required": false,
+            "extra_validation_name": "check_valid_language_code_nsc_ivl",
+            "pre_selected_value": "",
+            "helpertext": "Two letters languge code, e.g. 'en'. Normally this plugin will use the language setting of wordpress. If you do not want that you can overwrite it here.",
+            "name": "Language overwrite",
+            "save_in_db": true
+          }
+        ]
+      },
+      {
+        "tabname": "Styling",
+        "tab_slug": "styling",
+        "active": false,
+        "tab_description": "You can add css classes to the different elements of the table.",
+        "form_action": "options.php",
+        "tabfields": [
+          {
+            "field_slug": "table_css_class",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "",
+            "helpertext": "CSS class of <table> element.",
+            "name": "Class table",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "tr_css_class",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "",
+            "helpertext": "CSS class of <tr> element.",
+            "name": "Class table row",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "th_css_class",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "",
+            "helpertext": "CSS class of <th> element.",
+            "name": "Class table head.",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "td_css_class",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "",
+            "helpertext": "CSS class of <td> element.",
+            "name": "Class table data",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "ul_list_css_class",
+            "type": "longtext",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": "",
+            "helpertext": "CSS class of <ul> element.",
+            "name": "Class unordered list",
+            "save_in_db": true
+          }
+        ]
+      }
+    ]
+  }
+}
